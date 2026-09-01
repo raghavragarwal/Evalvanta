@@ -1,0 +1,65 @@
+/*
+  Design language: a structured technical-assessment tool, not a marketing SaaS page.
+  Palette is cool and paper-like (not the default warm cream), with a deep cobalt
+  accent and a monospace type used specifically for "traceable" data -- question
+  order, retrieval chunk ids -- so the type system itself communicates which
+  content is narrative versus which content is structured record.
+*/
+
+:root {
+  --paper: #EDEFF2;
+  --paper-raised: #F8F9FB;
+  --ink: #14161B;
+  --ink-soft: #4B4F58;
+  --line: #D4D8DE;
+  --accent: #2F4B7C;
+  --accent-soft: #DCE4F0;
+  --amber: #B4712F;
+  --amber-soft: #F3E6D6;
+  --sage: #3F6B4E;
+  --sage-soft: #DCEBE0;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+/* focus visibility, kept simple and consistent everywhere */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
