@@ -21,7 +21,7 @@ from app.config import settings
 _client = genai.Client(api_key=settings.gemini_api_key)
 
 
-def call_claude(system: str, user: str, max_tokens: int = 1024) -> str:
+def call_claude(system: str, user: str, max_tokens: int = 2048) -> str:
     """Single-turn call. Returns the raw text response."""
     response = _client.models.generate_content(
         model=settings.gemini_model,
@@ -29,6 +29,7 @@ def call_claude(system: str, user: str, max_tokens: int = 1024) -> str:
         config={
             "system_instruction": system,
             "max_output_tokens": max_tokens,
+            "thinking_config": {"thinking_budget": 0},
         },
     )
     return response.text or ""
