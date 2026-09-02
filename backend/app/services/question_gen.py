@@ -52,7 +52,7 @@ Questions already asked in this session:
 {prior_qs}
 """
 
-    result = call_claude_json(system=QUESTION_SYSTEM_PROMPT, user=user_prompt, max_tokens=500)
+    result = call_claude_json(system=QUESTION_SYSTEM_PROMPT, user=user_prompt, max_tokens=2000)
     return {
         "question": result.get("question", "").strip(),
         "topic": result.get("topic", "").strip(),

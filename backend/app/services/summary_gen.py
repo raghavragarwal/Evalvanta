@@ -30,7 +30,7 @@ Interview transcript:
 {transcript_block}
 """
 
-    result = call_claude_json(system=SUMMARY_SYSTEM_PROMPT, user=user_prompt, max_tokens=800)
+    result = call_claude_json(system=SUMMARY_SYSTEM_PROMPT, user=user_prompt, max_tokens=3000)
     return {
         "summary_text": result.get("summary_text", ""),
         "strengths": result.get("strengths", []),

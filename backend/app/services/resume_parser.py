@@ -42,7 +42,7 @@ def extract_structured_profile(resume_text: str) -> dict:
     result = call_claude_json(
         system=EXTRACTION_SYSTEM_PROMPT,
         user=f"Resume text:\n\n{resume_text[:8000]}",  # guard against extremely long resumes
-        max_tokens=800,
+        max_tokens=3000,
     )
     # Defensive defaults in case Claude omits a key
     return {
