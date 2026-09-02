@@ -190,6 +190,4 @@ frontend/
 
 ## Demo Video
 
-_Add a link to your demo video here before submission._ It should show: resume upload, role
-selection, the dynamically generated interview questions, answering the interview, and the final
-structured summary with traceable retrieval tags.
+https://youtu.be/KI0xugSCkfY
