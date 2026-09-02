@@ -1,6 +1,6 @@
 # Demo Video Script & Pre-Submission Checklist
 
-## Part 1 — Pre-Submission Testing Checklist
+## Pre-Submission Testing Checklist
 
 Run through this locally before recording, so the demo is a real run, not a rehearsed happy path.
 
@@ -37,50 +37,3 @@ worth mentioning proactively in the README as a known limitation if you don't fi
 notice unacknowledged gaps more than acknowledged ones.
 
 ---
-
-## Part 2 — Demo Video Script (aim for 4–6 minutes)
-
-### 0:00–0:30 — Framing
-"This is an AI-powered candidate screening system. Instead of a fixed question bank, it builds
-a technical interview dynamically — the questions come from a RAG pipeline that combines the
-candidate's resume with a role-specific knowledge base."
-
-Show the architecture diagram from `ARCHITECTURE.md` or `README.md` on screen for ~10 seconds
-while you say this — gives reviewers the mental model before they watch the UI.
-
-### 0:30–1:00 — Ingestion (prove the RAG side works, not just the UI)
-Run `python -m app.ingestion.run_ingestion` on screen (or show terminal output from an earlier
-run). Say: "The knowledge base is chunked paragraph-aware with overlap, embedded locally, and
-stored in role-specific ChromaDB collections — one for backend engineering, one for AI/ML."
-
-### 1:00–1:30 — Upload & extraction
-Upload a real resume, select a role. When the extracted profile appears (or once the first
-question loads), say what got extracted: "You can see it pulled out these skills and
-technologies from the resume — that's what drives the retrieval query for the first question."
-
-### 1:30–3:30 — Interview loop
-Answer 2–3 questions on camera. For at least one, explicitly say: "Notice this question is about
-[topic] — that's grounded in the [chunk topic] content, not a generic interview question." Point
-at the progress rail to show session continuity.
-
-### 3:30–4:30 — Results & traceability
-Show the final results screen. Call out: "Each question has these tags underneath — those are
-the actual knowledge-base chunk IDs that were retrieved and used to generate that question. So
-the whole pipeline — context, question, answer, storage — is traceable, not a black box."
-
-Read a snippet of the generated summary and point at the strengths/gaps.
-
-### 4:30–5:00 — Close
-"Backend is FastAPI with SQLite for session storage, frontend is React. Full setup and design
-rationale — including why embeddings are local while generation uses Claude — are in the
-README." End on the repo or README on screen.
-
-### Recording tips
-- Do one full un-cut take of the functional pass instead of stitching cuts — a live end-to-end
-  run is more convincing than an edited one, and matches "demonstrate the working system
-  end-to-end" from the assignment brief.
-- Keep the terminal visible at least once (ingestion or server startup) — it's easy proof this
-  isn't a static mockup.
-- If a question or summary comes back oddly (Claude output can vary), it's fine to keep it in —
-  a resilient system handling an imperfect answer often demonstrates more than a cherry-picked
-  perfect run.
